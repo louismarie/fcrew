@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environnements virtuels
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Système
+.DS_Store
+Thumbs.db
+
+# FCrew spécifique
+.fcrew/
+*.log
+prompts/
+memory/
+
+.pytest_cache
+assets/*
+test/
+docs_crew/
+chroma.sqlite3
+old_en.json
+db/
+test.py
+rc-tests/*
+*.pkl
+temp/*
+crew_tasks_output.json
+.codesight
+.mypy_cache
+.ruff_cache
+agentops.log
