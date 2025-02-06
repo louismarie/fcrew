@@ -1,45 +1,45 @@
-# FCrew - Framework d'Agents IA Avancé
+# FCrew - Advanced AI Agents Framework
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Python Versions](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/downloads/)
 
-> 🤖 **FCrew** est un framework nouvelle génération pour la création d'agents IA avec mémoire à long terme et gestion avancée des prompts. Basé sur CrewAI, il ajoute des capacités sophistiquées de mémorisation, de contextualisation et d'apprentissage, permettant aux agents de maintenir une cohérence dans leurs interactions et d'apprendre de leurs expériences.
+> 🤖 **FCrew** is a next-generation framework for creating AI agents with long-term memory and advanced prompt management. Based on CrewAI, it adds sophisticated memory, contextualization, and learning capabilities, allowing agents to maintain consistency in their interactions and learn from their experiences.
 
-## 🌟 Points Forts
-- 📝 Gestion avancée des prompts avec versionnage
-- 🧠 Mémoire à long terme avec oubli intelligent
-- 🤝 Collaboration avancée entre agents
-- 🎭 Système de personnalité et d'émotions
-- 📊 Apprentissage par renforcement
-- 🔄 Contextualisation automatique des interactions
-- 📊 Optimisation vectorielle des souvenirs
+## 🌟 Key Features
+- 📝 Advanced prompt management with versioning
+- 🧠 Long-term memory with intelligent forgetting
+- 🤝 Advanced agent collaboration
+- 🎭 Personality and emotion system
+- 📊 Reinforcement learning
+- 🔄 Automatic interaction contextualization
+- 📊 Vector memory optimization
 
-## Nouvelles Fonctionnalités
+## New Features
 
-### 1. Système de Personnalité et d'Émotions
+### 1. Personality and Emotion System
 ```python
 from fcrew.personality import AgentPersonality
 
-# Création d'une personnalité
+# Create a personality
 personality = AgentPersonality()
 
-# Ajustement des traits
+# Adjust traits
 personality.traits["openness"].value = 0.8
 personality.traits["extraversion"].value = 0.6
 
-# Traitement des interactions
-personality.process_interaction("Excellent travail !")
-response = personality.adjust_response("Merci pour votre retour.")
+# Process interactions
+personality.process_interaction("Excellent work!")
+response = personality.adjust_response("Thank you for your feedback.")
 ```
 
-### 2. Apprentissage par Renforcement
+### 2. Reinforcement Learning
 ```python
 from fcrew.learning import ReinforcementLearning
 
-# Création du système d'apprentissage
+# Create learning system
 learning = ReinforcementLearning()
 
-# Apprentissage à partir d'expériences
+# Learn from experiences
 learning.update(Experience(
     state={"context": 0.5},
     action="ask_question",
@@ -47,39 +47,39 @@ learning.update(Experience(
     next_state={"context": 0.8}
 ))
 
-# Obtention de la meilleure action
+# Get best action
 action = learning.get_action({"context": 0.5})
 ```
 
-### 3. Collaboration Avancée
+### 3. Advanced Collaboration
 ```python
 from fcrew.collaboration import CollaborationNetwork, Skill
 
-# Création du réseau
+# Create network
 network = CollaborationNetwork()
 
-# Ajout d'agents avec leurs compétences
+# Add agents with their skills
 network.add_agent("agent1", {
-    "analyse": Skill(name="analyse", level=0.8, description="Analyse de données")
+    "analysis": Skill(name="analysis", level=0.8, description="Data analysis")
 })
 
-# Création d'équipes optimales
+# Create optimal teams
 team = network.create_optimal_team(
-    task_requirements={"analyse": 0.7},
+    task_requirements={"analysis": 0.7},
     team_size=2
 )
 ```
 
-## Intégration des Fonctionnalités
+## Feature Integration
 
-### Création d'un Agent Avancé
+### Creating an Advanced Agent
 ```python
 from fcrew import EnhancedAgent, AgentPersonality, ReinforcementLearning
 
-# Configuration de l'agent
+# Agent configuration
 agent = EnhancedAgent(
-    role="Analyste",
-    goal="Analyser les données",
+    role="Analyst",
+    goal="Analyze data",
     personality=AgentPersonality(
         traits={
             "openness": 0.8,
@@ -91,98 +91,98 @@ agent = EnhancedAgent(
     memory_storage_path="~/.fcrew/memory"
 )
 
-# Utilisation des capacités avancées
-agent.personality.process_interaction("Excellent travail !")
+# Use advanced capabilities
+agent.personality.process_interaction("Excellent work!")
 agent.learning_system.update(experience)
 ```
 
-### Création d'un Crew Collaboratif
+### Creating a Collaborative Crew
 ```python
 from fcrew import Crew, CollaborationNetwork
 
-# Création du réseau de collaboration
+# Create collaboration network
 network = CollaborationNetwork()
 
-# Ajout des agents au réseau
+# Add agents to network
 network.add_agent("analyst", {
-    "analyse": Skill(name="analyse", level=0.8),
+    "analysis": Skill(name="analysis", level=0.8),
     "reporting": Skill(name="reporting", level=0.7)
 })
 network.add_agent("researcher", {
     "research": Skill(name="research", level=0.9),
-    "analyse": Skill(name="analyse", level=0.6)
+    "analysis": Skill(name="analysis", level=0.6)
 })
 
-# Création du crew avec collaboration
+# Create crew with collaboration
 crew = Crew(
     agents=[analyst, researcher],
     collaboration_network=network,
     process=Process.sequential
 )
 
-# Exécution avec optimisation automatique des collaborations
+# Execute with automatic collaboration optimization
 result = crew.kickoff(
     optimize_collaborations=True,
     task_requirements={
-        "analyse": 0.7,
+        "analysis": 0.7,
         "research": 0.8
     }
 )
 ```
 
-### Personnalisation des Interactions
+### Interaction Customization
 ```python
-# Configuration des traits de personnalité
+# Configure personality traits
 agent.personality.traits["openness"].value = 0.9
 agent.personality.emotional_state.joy = 0.8
 
-# Exécution d'une tâche avec personnalité
+# Execute task with personality
 response = agent.execute_task(
     task,
     context={"mood": "positive"},
     adjust_personality=True
 )
 
-# Analyse des performances d'apprentissage
+# Analyze learning performance
 performance = agent.learning_system.analyze_performance()
-print(f"Récompense moyenne : {performance['average_reward']}")
+print(f"Average reward: {performance['average_reward']}")
 ```
 
-## Avantages des Nouvelles Fonctionnalités
+## Benefits of New Features
 
-### 1. Personnalité et Émotions
-- **Interactions Plus Naturelles** : Les agents répondent de manière plus humaine et contextuelle
-- **Cohérence Comportementale** : Maintien d'une personnalité cohérente à travers les interactions
-- **Adaptation Émotionnelle** : Réponses adaptées au contexte émotionnel de l'interaction
-- **Historique Émotionnel** : Traçabilité de l'évolution émotionnelle des agents
+### 1. Personality and Emotions
+- **More Natural Interactions**: Agents respond in a more human and contextual way
+- **Behavioral Consistency**: Maintains consistent personality across interactions
+- **Emotional Adaptation**: Responses adapted to interaction's emotional context
+- **Emotional History**: Traceability of agents' emotional evolution
 
-### 2. Apprentissage par Renforcement
-- **Amélioration Continue** : Les agents apprennent de leurs expériences
-- **Optimisation des Décisions** : Choix d'actions basés sur les réussites passées
-- **Adaptation Contextuelle** : Apprentissage spécifique au contexte
-- **Mesure des Performances** : Suivi quantitatif de l'apprentissage
+### 2. Reinforcement Learning
+- **Continuous Improvement**: Agents learn from their experiences
+- **Decision Optimization**: Action choices based on past successes
+- **Contextual Adaptation**: Context-specific learning
+- **Performance Measurement**: Quantitative learning tracking
 
-### 3. Collaboration Avancée
-- **Équipes Optimales** : Création automatique d'équipes basée sur les compétences
-- **Synergies** : Identification et exploitation des complémentarités entre agents
-- **Historique Collaboratif** : Suivi et amélioration des collaborations
-- **Analyse de Réseau** : Visualisation et optimisation des relations entre agents
+### 3. Advanced Collaboration
+- **Optimal Teams**: Automatic team creation based on skills
+- **Synergies**: Identification and exploitation of agent complementarities
+- **Collaborative History**: Tracking and improving collaborations
+- **Network Analysis**: Visualization and optimization of agent relationships
 
-## Cas d'Usage Avancés
+## Advanced Use Cases
 
-### 1. Support Client Émotionnellement Intelligent
+### 1. Emotionally Intelligent Customer Support
 ```python
 agent = EnhancedAgent(
-    role="Support Client",
+    role="Customer Support",
     personality=AgentPersonality(
         traits={"empathy": 0.9}
     )
 )
-agent.personality.process_interaction("Je suis très frustré par ce problème !")
+agent.personality.process_interaction("I'm very frustrated with this problem!")
 response = agent.execute_task(task, adjust_personality=True)
 ```
 
-### 2. Équipe de Recherche Auto-Optimisante
+### 2. Self-Optimizing Research Team
 ```python
 crew = Crew(
     agents=[researcher, analyst, writer],
@@ -190,36 +190,36 @@ crew = Crew(
     learning_enabled=True
 )
 
-# L'équipe s'améliore au fil des tâches
+# Team improves over tasks
 for task in research_tasks:
     result = crew.kickoff(task)
     crew.learn_from_execution(task, result)
 ```
 
-### 3. Assistant Personnel Adaptatif
+### 3. Adaptive Personal Assistant
 ```python
 assistant = EnhancedAgent(
-    role="Assistant Personnel",
+    role="Personal Assistant",
     personality=AgentPersonality(),
     learning_system=ReinforcementLearning()
 )
 
-# L'assistant apprend les préférences de l'utilisateur
+# Assistant learns user preferences
 assistant.remember(
-    content="L'utilisateur préfère des réponses concises",
+    content="User prefers concise responses",
     importance=0.9
 )
 assistant.personality.adapt_to_user_preferences()
 ```
 
-## Prérequis
+## Prerequisites
 
-- Python 3.10 ou supérieur
-- 2GB d'espace disque minimum (pour le stockage des prompts et de la mémoire)
-- Clé API OpenAI (ou autre LLM compatible)
-- RAM recommandée : 8GB minimum
+- Python 3.10 or higher
+- 2GB minimum disk space (for prompt and memory storage)
+- OpenAI API key (or other compatible LLM)
+- Recommended RAM: 8GB minimum
 
-### Dépendances Principales
+### Main Dependencies
 
 ```toml
 dependencies = [
@@ -230,32 +230,32 @@ dependencies = [
 ]
 ```
 
-### Compatibilité des Modèles
+### Model Compatibility
 
-FCrew est compatible avec plusieurs fournisseurs de modèles de langage :
+FCrew is compatible with several language model providers:
 
-| Fournisseur | Modèles Supportés | Configuration |
-|-------------|-------------------|---------------|
-| OpenAI | O1-mini, O1, O1 pro, O3-mini, O3-mini-high, GPT-4o, GPT-3.5 | Clé API requise |
-| Anthropic | Sonnet, Haiku | Clé API requise |
-| Ollama | Tous les modèles | Installation locale |
-| LlamaCpp | Tous les modèles compatibles | Installation locale |
+| Provider | Supported Models | Configuration |
+|----------|-----------------|---------------|
+| OpenAI | O1-mini, O1, O1 pro, O3-mini, O3-mini-high, GPT-4o, GPT-3.5 | API key required |
+| Anthropic | Sonnet, Haiku | API key required |
+| Ollama | All models | Local installation |
+| LlamaCpp | All compatible models | Local installation |
 
-## Fonctionnalités Principales
+## Core Features
 
-### 1. Gestion Avancée des Prompts
-- Création et gestion de templates de prompts
-- Versionnage automatique des prompts
-- Variables dynamiques dans les templates
-- Historique des modifications
-- Stockage persistant des prompts
+### 1. Advanced Prompt Management
+- Creation and management of prompt templates
+- Automatic prompt versioning
+- Dynamic variables in templates
+- Change history
+- Persistent prompt storage
 
-### 2. Mémoire à Long Terme Intelligente
-- Recherche sémantique des souvenirs
-- Mécanisme d'oubli intelligent basé sur l'importance
-- Consolidation automatique de la mémoire
-- Récupération contextuelle des informations
-- Stockage vectoriel optimisé
+### 2. Intelligent Long-term Memory
+- Semantic memory search
+- Intelligent forgetting mechanism based on importance
+- Automatic memory consolidation
+- Contextual information retrieval
+- Optimized vector storage
 
 ## Installation
 
@@ -263,17 +263,17 @@ FCrew est compatible avec plusieurs fournisseurs de modèles de langage :
 pip install fcrew
 ```
 
-## Guide d'Utilisation
+## Usage Guide
 
-### 1. Configuration de Base
+### 1. Basic Configuration
 
 ```python
 from fcrew import FCrewConfig
 
-# Configuration via fichier JSON
+# Configuration via JSON file
 config = FCrewConfig.load_from_file("fcrew_config.json")
 
-# Ou configuration programmatique
+# Or programmatic configuration
 config = FCrewConfig(
     prompt_storage_path="~/.fcrew/prompts",
     memory_storage_path="~/.fcrew/memory",
@@ -281,100 +281,100 @@ config = FCrewConfig(
 )
 ```
 
-### 2. Création d'un Agent Amélioré
+### 2. Creating an Enhanced Agent
 
 ```python
 from crewai import Task, Crew, Process
 from crewai.agents import EnhancedAgent
 import os
 
-# Création des chemins de stockage
+# Create storage paths
 base_path = os.path.expanduser("~/.fcrew")
 prompts_path = os.path.join(base_path, "prompts")
 memory_path = os.path.join(base_path, "memory")
 
-# Création de l'agent
+# Create agent
 agent = EnhancedAgent(
-    role="Analyste IA",
-    goal="Analyser les tendances en IA",
-    backstory="Expert en analyse de données et tendances IA",
+    role="AI Analyst",
+    goal="Analyze AI trends",
+    backstory="Expert in data analysis and AI trends",
     prompt_storage_path=prompts_path,
     memory_storage_path=memory_path
 )
 ```
 
-### 3. Gestion des Prompts
+### 3. Prompt Management
 
 ```python
-# Création d'un template
+# Create template
 agent.create_prompt_template(
-    name="analyse_tendance",
+    name="trend_analysis",
     content="""
-    Analyser les tendances en ${domaine} avec focus sur :
-    1. Innovations récentes
-    2. Impact sur le marché
-    3. Perspectives futures
+    Analyze trends in ${domain} focusing on:
+    1. Recent innovations
+    2. Market impact
+    3. Future perspectives
     
-    Contexte historique :
+    Historical context:
     ${relevant_memories}
     """,
-    variables=["domaine"]
+    variables=["domain"]
 )
 
-# Utilisation du template
-resultat = agent.use_prompt_template(
-    "analyse_tendance",
-    domaine="intelligence artificielle"
+# Use template
+result = agent.use_prompt_template(
+    "trend_analysis",
+    domain="artificial intelligence"
 )
 ```
 
-### 4. Utilisation de la Mémoire
+### 4. Using Memory
 
 ```python
-# Stockage d'une information
+# Store information
 agent.remember(
-    content="GPT-4 a montré des capacités de raisonnement avancées",
+    content="GPT-4 has shown advanced reasoning capabilities",
     importance=0.9,
-    context={"domaine": "LLM", "date": "2024"}
+    context={"domain": "LLM", "date": "2024"}
 )
 
-# La mémoire est automatiquement utilisée lors de l'exécution des tâches
+# Memory is automatically used during task execution
 task = Task(
-    description="Analyser l'évolution des LLM",
+    description="Analyze LLM evolution",
     agent=agent
 )
 ```
 
-### 5. Création d'un Crew
+### 5. Creating a Crew
 
 ```python
-# Création d'un crew avec plusieurs agents
+# Create crew with multiple agents
 researcher = EnhancedAgent(
-    role="Chercheur",
-    goal="Rechercher les dernières avancées",
+    role="Researcher",
+    goal="Research latest advances",
     prompt_storage_path=prompts_path,
     memory_storage_path=memory_path
 )
 
 analyst = EnhancedAgent(
-    role="Analyste",
-    goal="Analyser les implications",
+    role="Analyst",
+    goal="Analyze implications",
     prompt_storage_path=prompts_path,
     memory_storage_path=memory_path
 )
 
-# Définition des tâches
+# Define tasks
 research_task = Task(
-    description="Rechercher les dernières avancées en IA",
+    description="Research latest AI advances",
     agent=researcher
 )
 
 analysis_task = Task(
-    description="Analyser les implications des découvertes",
+    description="Analyze findings implications",
     agent=analyst
 )
 
-# Création du crew
+# Create crew
 crew = Crew(
     agents=[researcher, analyst],
     tasks=[research_task, analysis_task],
@@ -382,15 +382,15 @@ crew = Crew(
     verbose=True
 )
 
-# Exécution
-resultat = crew.kickoff()
+# Execute
+result = crew.kickoff()
 ```
 
-## Fonctionnalités Avancées
+## Advanced Features
 
-### Gestion de la Mémoire Partagée
+### Shared Memory Management
 
-Les agents d'un même crew peuvent partager leur mémoire en utilisant le même chemin de stockage :
+Agents in the same crew can share memory using the same storage path:
 
 ```python
 memory_path = "~/.fcrew/shared_memory"
@@ -398,9 +398,9 @@ agent1 = EnhancedAgent(..., memory_storage_path=memory_path)
 agent2 = EnhancedAgent(..., memory_storage_path=memory_path)
 ```
 
-### Templates de Prompts Partagés
+### Shared Prompt Templates
 
-De même pour les prompts :
+Similarly for prompts:
 
 ```python
 prompts_path = "~/.fcrew/shared_prompts"
@@ -408,67 +408,67 @@ agent1 = EnhancedAgent(..., prompt_storage_path=prompts_path)
 agent2 = EnhancedAgent(..., prompt_storage_path=prompts_path)
 ```
 
-### Personnalisation de l'Importance des Souvenirs
+### Memory Importance Customization
 
 ```python
 agent.remember(
-    content="Information critique",
-    importance=1.0,  # Importance maximale
-    context={"type": "critique"}
+    content="Critical information",
+    importance=1.0,  # Maximum importance
+    context={"type": "critical"}
 )
 ```
 
-## Bonnes Pratiques
+## Best Practices
 
-1. **Organisation des Prompts**
-   - Créez des templates réutilisables
-   - Utilisez des variables pour la flexibilité
-   - Documentez vos templates
+1. **Prompt Organization**
+   - Create reusable templates
+   - Use variables for flexibility
+   - Document your templates
 
-2. **Gestion de la Mémoire**
-   - Définissez des niveaux d'importance appropriés
-   - Utilisez des contextes pertinents
-   - Partagez la mémoire quand cela fait sens
+2. **Memory Management**
+   - Set appropriate importance levels
+   - Use relevant contexts
+   - Share memory when it makes sense
 
 3. **Configuration**
-   - Utilisez des chemins de stockage différents pour différents projets
-   - Ajustez max_memories selon vos besoins
-   - Activez le mode debug pour le développement
+   - Use different storage paths for different projects
+   - Adjust max_memories according to your needs
+   - Enable debug mode for development
 
-## Contribution
+## Contributing
 
-Les contributions sont les bienvenues ! Pour contribuer :
+Contributions are welcome! To contribute:
 
-1. Forkez le projet
-2. Créez une branche pour votre fonctionnalité
-3. Soumettez une Pull Request
+1. Fork the project
+2. Create a feature branch
+3. Submit a Pull Request
 
-## Licence
+## License
 
-Ce projet est sous licence MIT - voir le fichier LICENSE pour plus de détails.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🔧 Résolution des Problèmes Courants
+## 🔧 Common Problem Resolution
 
-### Problèmes de Mémoire
+### Memory Issues
 
-1. **Erreur de stockage vectoriel**
+1. **Vector storage error**
    ```
-   Solution : Vérifiez l'espace disque et les permissions du dossier de stockage
-   ```
-
-2. **Mémoire non persistante**
-   ```
-   Solution : Assurez-vous que le chemin de stockage est absolu et accessible
+   Solution: Check disk space and storage folder permissions
    ```
 
-3. **Lenteur des recherches**
+2. **Non-persistent memory**
    ```
-   Solution : Ajustez max_memories ou utilisez un index optimisé
+   Solution: Ensure storage path is absolute and accessible
    ```
 
-### Problèmes de Prompts
+3. **Slow searches**
+   ```
+   Solution: Adjust max_memories or use optimized index
+   ```
 
-1. **Variables non résolues**
+### Prompt Issues
+
+1. **Unresolved variables**
    ```python
    # Incorrect
    template.format(wrong_var="value")
@@ -477,77 +477,77 @@ Ce projet est sous licence MIT - voir le fichier LICENSE pour plus de détails.
    template.format(expected_var="value")
    ```
 
-2. **Versions manquantes**
+2. **Missing versions**
    ```
-   Solution : Vérifiez que le stockage des prompts est correctement initialisé
+   Solution: Verify prompt storage is properly initialized
    ```
 
-## 📋 Cas d'Utilisation Recommandés
+## 📋 Recommended Use Cases
 
-### 1. Assistant Personnel Évolutif
-- Utilisation de la mémoire pour apprendre les préférences
-- Prompts personnalisés par utilisateur
-- Contexte maintenu entre les sessions
+### 1. Evolving Personal Assistant
+- Use memory to learn preferences
+- Custom prompts per user
+- Maintain context between sessions
 
-### 2. Analyse de Documents
-- Mémoire partagée entre agents
-- Templates spécialisés par type de document
-- Conservation du contexte historique
+### 2. Document Analysis
+- Shared memory between agents
+- Specialized templates per document type
+- Historical context preservation
 
-### 3. Support Client Intelligent
-- Mémorisation des interactions précédentes
-- Prompts adaptés au contexte client
-- Partage d'informations entre agents
+### 3. Intelligent Customer Support
+- Remember previous interactions
+- Context-adapted prompts
+- Information sharing between agents
 
-### 4. Recherche et Synthèse
-- Accumulation progressive de connaissances
-- Templates structurés pour la cohérence
-- Mémoire pour éviter les redondances
+### 4. Research and Synthesis
+- Progressive knowledge accumulation
+- Structured templates for consistency
+- Memory to avoid redundancy
 
-## 🎯 Performances et Limites
+## 🎯 Performance and Limits
 
-### Performances
-- Temps de réponse moyen : < 2s
-- Capacité de stockage : ~1M souvenirs
-- Précision de la recherche : ~95%
+### Performance
+- Average response time: < 2s
+- Storage capacity: ~1M memories
+- Search accuracy: ~95%
 
-### Limites Actuelles
-- Taille maximale des prompts : 100KB
-- Nombre maximal d'agents par crew : 50
-- Taille maximale de la mémoire partagée : 10GB
+### Current Limits
+- Maximum prompt size: 100KB
+- Maximum agents per crew: 50
+- Maximum shared memory size: 10GB
 
-## 🚀 Démarrage Rapide
+## 🚀 Quick Start
 
 1. **Installation**
 ```bash
 pip install fcrew
 ```
 
-2. **Configuration Minimale**
+2. **Minimal Configuration**
 ```python
 from fcrew import FCrewConfig, EnhancedAgent, Task, Crew
 
-# Configuration de base
+# Basic configuration
 config = FCrewConfig(
     prompt_storage_path="~/.fcrew/prompts",
     memory_storage_path="~/.fcrew/memory"
 )
 
-# Création d'un agent avec mémoire
+# Create agent with memory
 agent = EnhancedAgent(
     role="Assistant",
-    goal="Aider l'utilisateur",
+    goal="Help user",
     prompt_storage_path=config.effective_prompt_storage_path,
     memory_storage_path=config.effective_memory_storage_path
 )
 
-# Création et exécution d'une tâche
-task = Task(description="Saluer l'utilisateur", agent=agent)
+# Create and execute task
+task = Task(description="Greet user", agent=agent)
 crew = Crew(agents=[agent], tasks=[task])
-resultat = crew.kickoff()
+result = crew.kickoff()
 ```
 
-3. **Variables d'Environnement**
+3. **Environment Variables**
 ```bash
 # .env
 OPENAI_API_KEY=sk-...
