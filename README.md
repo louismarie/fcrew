@@ -260,7 +260,7 @@ FCrew is compatible with several language model providers:
 ## Installation
 
 ```bash
-pip install fcrew
+pip install fcrew (not implemented for now, you have to use the source instead or compile it)
 ```
 
 ## Usage Guide
